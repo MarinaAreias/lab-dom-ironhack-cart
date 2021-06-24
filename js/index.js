@@ -1,16 +1,21 @@
 // ITERATION 1
 
 function updateSubtotal(product) {
+  // got elements by class and tag
   const price = product.querySelector('.price span');
   const quantity = product.querySelector('.quantity input');
-  console.log('Calculating subtotal, yey!');
-  // extract value
-  quantity.innerHTML = 'input';
+  console.dir();
 
+  // extracted values
+  // quantity.innerHTML = '';
+  price.innerHTML = '';
+
+  console.log('Calculating subtotal, yey!');
+  // variable for
   const subtotalPrice = price * quantity;
 
   const subtotal = product.querySelector('.subtotal span');
-  price.innerHTML = subtotal;
+  subtotal.innerHTML = subtotalPrice.innerHTML;
 
   //... your code goes here
 }
