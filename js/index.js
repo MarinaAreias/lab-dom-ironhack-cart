@@ -4,34 +4,42 @@ function updateSubtotal(product) {
   // got elements by class and tag
   const price = product.querySelector('.price span');
   const quantity = product.querySelector('.quantity input');
-  console.dir();
+  // console.dir(price);
+
+  // variable for
+  const subtotalPrice = price.innerHTML * quantity.value;
+  // console.dir(subtotalPrice);
+  // console.dir(quantity);
+
+  const subtotal = product.querySelector('.subtotal');
 
   // extracted values
   // quantity.innerHTML = '';
-  price.innerHTML = '';
+  subtotal.innerHTML = subtotalPrice;
 
-  console.log('Calculating subtotal, yey!');
-  // variable for
-  const subtotalPrice = price * quantity;
-
-  const subtotal = product.querySelector('.subtotal span');
-  subtotal.innerHTML = subtotalPrice.innerHTML;
-
-  //... your code goes here
+  return subtotalPrice;
 }
 
+// iteration 2
+
 function calculateAll() {
-  // code in the following two lines is added just for testing purposes.
-  // it runs when only iteration 1 is completed. at later point, it can be removed.
-  const singleProduct = document.querySelector('.product');
-  updateSubtotal(singleProduct);
-  // end of test
+  // getting all the classes name "product"
+  // because it give us a node and that is an array we can use array methods like a forEach
+  const getAllProducts = document.querySelectorAll('.product');
+  // iteration 3
+  let total = 0;
+  getAllProducts.forEach((product) => {
+    let subTotal = updateSubtotal(product);
+    total += subTotal;
+  });
 
-  // ITERATION 2
-  //... your code goes here
+  // using a ffor loop
+  // total price
+  // for (i = 0; allproductElement.lenth; i++){
+  // subtotal +=UpdateSubtotal(allProductElement[i])
 
-  // ITERATION 3
-  //... your code goes here
+  const totalValue = document.getElementById('total-value');
+  totalValue.innerHTML = `$${total}`;
 }
 
 // ITERATION 4
